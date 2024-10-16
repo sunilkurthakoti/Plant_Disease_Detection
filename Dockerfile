@@ -11,6 +11,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libatlas-base-dev \
     libc6-dev \
     build-essential \
+    libjpeg-dev \
+    zlib1g-dev \       
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 
@@ -26,7 +28,7 @@ RUN python -m pip install --no-cache-dir --upgrade pip setuptools wheel
 RUN python -m pip install --no-cache-dir aiofiles>=0.4.0
 RUN python -m pip install --no-cache-dir aiohttp>=3.5.4
 RUN python -m pip install --no-cache-dir asyncio>=3.4.3
-RUN python -m pip install --no-cache-dir fastai>=1.0.60
+RUN python -m pip install --no-cache-dir fastai>=1.0.61 
 RUN python -m pip install --no-cache-dir torch>=1.4.0
 RUN python -m pip install --no-cache-dir torchvision>=0.5.0
 RUN python -m pip install --no-cache-dir numpy>=1.16.3

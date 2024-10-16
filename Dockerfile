@@ -11,8 +11,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libatlas-base-dev \
     libc6-dev \
     build-essential \
-    libjpeg-dev \      # Required for image processing
-    zlib1g-dev \       # Required for image processing
+    libjpeg-dev \     
+    zlib1g-dev \       
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 

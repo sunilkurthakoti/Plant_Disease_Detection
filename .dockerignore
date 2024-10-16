@@ -1,15 +1,4 @@
-# Ignore Python cache files
-__pycache__/
-*.py[cod]
 *.pth
-
-# Ignore version control files
-.git/
 .gitignore
-
-# Ignore documentation
 README.md
-deployment_guide/
-
-# Ignore Docker-related files (only if not needed)
-Dockerfile
+deployment_guide

@@ -1,34 +1,21 @@
-FROM python:3.8-slim
+# Use the official fastai image as the base
+FROM fastai/fastai:latest
 
 # Set working directory
 WORKDIR /usr/src/app
 
-# Install dependencies and system packages
+# Install any additional packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
-    python3-dev \
-    gcc \
-    libatlas-base-dev \
-    libc6-dev \
-    build-essential \
-    libjpeg-dev \     
-    zlib1g-dev \       
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 
-# Set up a virtual environment
-RUN python -m venv /opt/venv
-ENV PATH="/opt/venv/bin:$PATH"
-
-# Copy and install Python dependencies
+# Copy requirements.txt
 COPY requirements.txt .
 
-# Upgrade pip and install fastai directly
+# Upgrade pip and install dependencies
 RUN python -m pip install --no-cache-dir --upgrade pip setuptools wheel \
-    && python -m pip install --no-cache-dir fastai==1.0.61
-
-# Install other dependencies from requirements.txt
-RUN python -m pip install --no-cache-dir -r requirements.txt
+    && python -m pip install --no-cache-dir -r requirements.txt
 
 # Copy application files
 COPY app app/

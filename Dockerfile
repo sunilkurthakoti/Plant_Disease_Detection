@@ -8,6 +8,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     python3-dev \
     gcc \
+    libatlas-base-dev \  # Required for NumPy and SciPy
+    libc6-dev \          # Required for many packages
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 
